@@ -1,0 +1,3 @@
+Instance: Hideous Cobra
+Instance ID: i-0163da71453a65bea
+Instance Private IP: 10.0.7.222
