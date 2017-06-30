@@ -1,0 +1,46 @@
+ubuntu@ip-10-0-7-222:~$ cat /proc/meminfo
+MemTotal:         498580 kB
+MemFree:          132456 kB
+MemAvailable:     425000 kB
+Buffers:           11420 kB
+Cached:           280240 kB
+SwapCached:            0 kB
+Active:            87612 kB
+Inactive:         225740 kB
+Active(anon):      24552 kB
+Inactive(anon):     1420 kB
+Active(file):      63060 kB
+Inactive(file):   224320 kB
+Unevictable:        4684 kB
+Mlocked:            4684 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 8 kB
+Writeback:             0 kB
+AnonPages:         26408 kB
+Mapped:            31940 kB
+Shmem:              1852 kB
+Slab:              33236 kB
+SReclaimable:      18088 kB
+SUnreclaim:        15148 kB
+KernelStack:        2240 kB
+PageTables:         2460 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      249288 kB
+Committed_AS:     256136 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       40960 kB
+DirectMap2M:      483328 kB
