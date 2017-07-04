@@ -1,0 +1,20 @@
+Question: Describe how you find the public IP address of a given instance using the EC2 console.
+
+Note: Assuming access and capability of reader such that they can navigate to the EC2 Console Home page.
+
+Once on this page, select "Instances" under the Instances node in the list on the left side of the page.
+Alternatively, you can select the hyperlink under Resources titled 'X Running Instances'.
+
+Now, you should see a list of all the running instances on this account.
+Find the desired instance.
+
+If you know the Instance Name/ID, you can search for the instance using that information in the box just above the instance list.
+
+Select that instance by clicking the button next to the instance name. It should turn blue.
+Make sure it's the only instance selected.
+
+There should now be a series of pages of information located directly under the Instance List.
+Make sure the 'Description' tab is selected.
+
+In the right hand column, near the top of the page, is the IPv4 Public IP.
+That is the public IP address of the given instance. 
