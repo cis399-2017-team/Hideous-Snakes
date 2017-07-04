@@ -1,3 +1,4 @@
+ubuntu@ip-10-0-7-222:~$ df
 Filesystem     1K-blocks   Used Available Use% Mounted on
 udev              241548      0    241548   0% /dev
 tmpfs              49860   1824     48036   4% /run
