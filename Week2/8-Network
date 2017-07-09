@@ -1,0 +1,74 @@
+Script started on Sun 09 Jul 2017 05:51:25 PM UTC
+]0;ubuntu@ip-10-0-7-246: ~[01;32mubuntu@ip-10-0-7-246[00m:[01;34m~[00m$ logouts[Kvim authorized_keys_backup[2P.ssh/authorized_keys[4P.ssh/authorized_keysls[Ksudo adduser kaelas --disabled-passwordsudo netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0    300 ip-10-0-7-246.us-we:ssh 198-0-43-123-stat:52412 ESTABLISHED
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  3      [ ]         DGRAM                    8739     /run/systemd/notify
+unix  2      [ ]         DGRAM                    258465   /run/user/1000/systemd/notify
+unix  7      [ ]         DGRAM                    8746     /run/systemd/journal/socket
+unix  2      [ ]         DGRAM                    8934     /run/systemd/journal/syslog
+unix  11     [ ]         DGRAM                    8935     /run/systemd/journal/dev-log
+unix  3      [ ]         DGRAM                    10159    
+unix  3      [ ]         DGRAM                    10937    
+unix  3      [ ]         STREAM     CONNECTED     9863     /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    258703   
+unix  3      [ ]         DGRAM                    10160    
+unix  2      [ ]         DGRAM                    8981     
+unix  2      [ ]         DGRAM                    10153    
+unix  3      [ ]         STREAM     CONNECTED     258518   
+unix  2      [ ]         DGRAM                    258457   
+unix  2      [ ]         DGRAM                    12142    
+unix  3      [ ]         STREAM     CONNECTED     9861     
+unix  3      [ ]         STREAM     CONNECTED     13129    
+unix  3      [ ]         STREAM     CONNECTED     13767    /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM                    10936    
+unix  3      [ ]         STREAM     CONNECTED     13766    
+unix  2      [ ]         DGRAM                    9262     
+unix  3      [ ]         STREAM     CONNECTED     258517   
+unix  3      [ ]         STREAM     CONNECTED     13621    
+unix  3      [ ]         STREAM     CONNECTED     10829    
+unix  2      [ ]         STREAM     CONNECTED     258700   
+unix  2      [ ]         DGRAM                    10916    
+unix  3      [ ]         STREAM     CONNECTED     10830    /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM                    10934    
+unix  2      [ ]         DGRAM                    258353   
+unix  3      [ ]         DGRAM                    10935    
+unix  3      [ ]         STREAM     CONNECTED     10120    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     10119    
+unix  3      [ ]         STREAM     CONNECTED     13628    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     13399    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     14210    
+unix  3      [ ]         STREAM     CONNECTED     15510    
+unix  3      [ ]         STREAM     CONNECTED     14211    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     258430   /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     15511    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     13493    
+unix  3      [ ]         STREAM     CONNECTED     13492    
+unix  3      [ ]         STREAM     CONNECTED     13494    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     13990    
+unix  3      [ ]         STREAM     CONNECTED     13325    
+unix  3      [ ]         STREAM     CONNECTED     13991    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     13416    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    13993    
+unix  3      [ ]         STREAM     CONNECTED     258426   
+unix  3      [ ]         STREAM     CONNECTED     13324    
+unix  2      [ ]         DGRAM                    258433   
+unix  2      [ ]         DGRAM                    15779    
+unix  2      [ ]         DGRAM                    13358    
+unix  2      [ ]         DGRAM                    13483    
+unix  3      [ ]         STREAM     CONNECTED     15403    
+unix  2      [ ]         DGRAM                    13363    
+unix  3      [ ]         STREAM     CONNECTED     15664    
+unix  3      [ ]         STREAM     CONNECTED     14140    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    13911    
+unix  3      [ ]         STREAM     CONNECTED     15404    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     15665    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     14139    
+]0;ubuntu@ip-10-0-7-246: ~[01;32mubuntu@ip-10-0-7-246[00m:[01;34m~[00m$ logout
+bash: logout: not login shell: use `exit'
+]0;ubuntu@ip-10-0-7-246: ~[01;32mubuntu@ip-10-0-7-246[00m:[01;34m~[00m$ exit
+exit
+
+Script done on Sun 09 Jul 2017 05:51:53 PM UTC
