@@ -1,0 +1,39 @@
+ubuntu@ip-10-0-7-246:~$ sudo apt-get purge sshd
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package sshd
+ubuntu@ip-10-0-7-246:~$ sudo sshd stop
+sshd re-exec requires execution with an absolute path
+ubuntu@ip-10-0-7-246:~$ ls
+authorized_keys_backup  kaelaWasHere  typescript
+ubuntu@ip-10-0-7-246:~$ cd /etc/ssh
+ubuntu@ip-10-0-7-246:/etc/ssh$ ls
+moduli       ssh_host_dsa_key      ssh_host_ecdsa_key.pub    ssh_host_rsa_key
+ssh_config   ssh_host_dsa_key.pub  ssh_host_ed25519_key      ssh_host_rsa_key.pub
+sshd_config  ssh_host_ecdsa_key    ssh_host_ed25519_key.pub  ssh_import_id
+ubuntu@ip-10-0-7-246:/etc/ssh$ sudo mv sshd_config sshd_config_backup
+ubuntu@ip-10-0-7-246:/etc/ssh$ ls
+moduli              ssh_host_dsa_key.pub    ssh_host_ed25519_key.pub
+ssh_config          ssh_host_ecdsa_key      ssh_host_rsa_key
+sshd_config_backup  ssh_host_ecdsa_key.pub  ssh_host_rsa_key.pub
+ssh_host_dsa_key    ssh_host_ed25519_key    ssh_import_id
+ubuntu@ip-10-0-7-246:/etc/ssh$ cd ~ubuntu/.ssh
+ubuntu@ip-10-0-7-246:~/.ssh$ ls
+authorized_keys
+ubuntu@ip-10-0-7-246:~/.ssh$ sudo mv authorized_keys authorized_keys_backup
+ubuntu@ip-10-0-7-246:~/.ssh$ ls
+authorized_keys_backup
+ubuntu@ip-10-0-7-246:~/.ssh$ sudo puppet agent -t
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-7-246.us-west-2.compute.internal
+Info: Applying configuration version '1500254686'
+Notice: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]/ensure: defined content as '{md5}8383ec31cdeb8b721a56d1e3ea7eb8d5'
+Info: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]: Scheduling refresh of Service[sshd]
+Notice: /Stage[main]/Sshd/Service[sshd]: Triggered 'refresh' from 1 events
+Notice: /Stage[main]/Sshd/Ssh_authorized_key[cconklin-key-pair-oregon]/ensure: created
+Notice: /Stage[main]/Sshd/Ssh_authorized_key[nboyd-key-pair-oregon]/ensure: created
+Notice: /Stage[main]/Sshd/Ssh_authorized_key[kaschaefer-key-pair-oregon]/ensure: created
+Notice: Finished catalog run in 0.15 seconds
+ubuntu@ip-10-0-7-246:~/.ssh$
