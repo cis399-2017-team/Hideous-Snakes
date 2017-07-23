@@ -1,0 +1,7 @@
+198.0.43.123 - - [23/Jul/2017:21:00:46 +0000] "GET /test.html HTTP/1.1" 404 540 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+198.0.43.123 - - [23/Jul/2017:21:04:04 +0000] "GET / HTTP/1.1" 200 3527 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+198.0.43.123 - - [23/Jul/2017:21:04:04 +0000] "GET /icons/ubuntu-logo.png HTTP/1.1" 304 180 "http://ec2-34-208-231-112.us-west-2.compute.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+198.0.43.123 - - [23/Jul/2017:21:04:14 +0000] "GET /page2.html HTTP/1.1" 200 3261 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+198.0.43.123 - - [23/Jul/2017:21:05:09 +0000] "GET / HTTP/1.1" 200 3527 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.
+115 Safari/537.36"
+198.0.43.123 - - [23/Jul/2017:21:05:11 +0000] "GET / HTTP/1.1" 200 3526 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
