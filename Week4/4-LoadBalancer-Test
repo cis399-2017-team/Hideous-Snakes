@@ -1,0 +1,4 @@
+1. When I just turn off instance 1 (Asp), the Boa instance takes over and displays it's webpage
+2. When I just turn off instance 2 (Boa), the Asp instance takes over and displays it's webpage
+3. When I turn off both instances, the webpage doesn't display (as expected)
+4. When I restore both to their normal running state, the webpage displays as normal
