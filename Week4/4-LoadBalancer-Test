@@ -1,4 +1,4 @@
-1. When I just turn off instance 1 (Asp), the Boa instance takes over and displays it's webpage
-2. When I just turn off instance 2 (Boa), the Asp instance takes over and displays it's webpage
+1. When I just turn off instance 1 (Asp), the Boa instance takes over and provides the html to the requester.
+2. When I just turn off instance 2 (Boa), the Asp instance takes over and provides the html to the requester.
 3. When I turn off both instances, the webpage doesn't display (as expected)
-4. When I restore both to their normal running state, the webpage displays as normal
+4. When I restore both to their normal running state, the webpage displays as normal and either instance 1 or instance 2 provides the html.
