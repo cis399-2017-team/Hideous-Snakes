@@ -1,0 +1,20 @@
+Snakes Final Write Up
+
+We created a rudimentary user folder system using Rsync. There is a collection of user folders and accounts and one main template account. The template has a set of files intended for every new user. After a period of time, all new files will be deleted, all modified or removed files provided from the template account will be restored via Rsync.
+
+Goals and methods of testing/verification
+	Our  goal was to have a system for restoring a user folder to the default state after a period of time. We verified this by having several rudimentary “hello 	world” files that the user was able to edit and play with, that we tested whether they would reset to their default state after a given period of time.
+
+Effect on its user population and user support issues
+	Essentially all user folders are simply temporary “guest” folders. We have a message of the day upon access of the server that lets the user know that their changes are temporary and nothing is saved. The most obvious support issue is that users may not understand that their files and changes are simply temporary, and a “save” will only be temporary until the system is restored to its initial state.
+
+Relevant Security Issues
+	We ensured that only authorized users will be able to access the Template folder. Also, we have a home 
+
+Work necessary for completion and future automation and maintenance
+	We have a cron job for Rsync to restore deleted or edited default files, as well as a way to remove any new files.
+	Maintenance work will be fairly limited, only when there is a critical update required for any of the resources used.
+	We created a message of the day that when a user logs in that will notify them of how our server works and warns them of potential loss of files.
+
+Documentation of the project
+	Very little documentation is needed for this system. We have a readme, that walks a sysadmin through the process of adding and deleting user accounts.
