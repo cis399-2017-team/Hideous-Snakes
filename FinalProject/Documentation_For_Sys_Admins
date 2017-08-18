@@ -1,8 +1,72 @@
+How to Implement System
+
+NOTE:: This documentation assumes prior knowledge of Puppet and its installation and implementation.
+
+
+Create FakeFreeze Module
+	This is the module that will hold your template directory for your users and control the cleanup of any created files in the world writeable temp directories.
+	On your Puppet Master, create the Directory fakefreeze and within that, the Files directory and the Manifests directory. Make sure you use all lowercase letters!
+	The files directory will serve as your Template directory, so this is where you should locate the files that you want stored in every user’s home directory. Make sure that the permissions are set in this directory, as that will decide the permissions on your servers.
+	In the Manifests directory, create init.pp and create the fakefreeze class. This class will contain one cron resource PER USER. They should be in the following format:
+
+	  cron { 'clean USERNAME’:
+   		command => 'find /tmp -user USERNAME -delete && find /var/tmp -user USERNAME -delete',
+    		user => 'root',
+    		hour => '23',
+	   }
+
+	The hour controls which hour at which you are clearing out the temp directories. In this implementation, we chose to clear the directories at 11:00pm every day. This ensures users cannot stash files in the temp directories.
+
+Create Message of the Day Module
+	This is the module that will inform users of the specs of the system.
+	On your Puppet Master, create the motd directory and within that, the manifests and templates directories.
+	In the manifest directory, create the init.pp file and within it, declare the motd class.
+	This class will configure the motd file on each instance. There will only be one resource, a file resource.
+	The file resource should follow the following syntax:
+
+	file {'/etc/motd':
+		ensure => file,
+		mode => '0644',
+		owner => 'root',
+		group => 'root',
+		content => template('motd/motd.erb')
+	}
+
+	In the templates directory, create a file called motd.erb. This is where you will configure how you will inform users of the specifications of your system. This file is written in Ruby. Here is an example:
+
+	 *** Welcome to the Hideous Snakes Learning Environment ***
+	 *** The operating system is <%= @operatingsystem %> ***
+
+		********* WARNING *********
+	You are entering a learning environment.
+	You are welcome to modify your files and create new ones.
+	However, any changes you make are *TEMPORARY*.
+	Please be sure to save your files locally because they will be removed after a certain period of time.
+		***************************
+
+Ensure Master Has Access to Agents
+	For the next part of the implementation to work properly, the Puppet Master must be able to sign in as root to the agents. Create an ssh-key using ssh-keygen -t rsa. This will create two files id_rsa and id_rsa.pub in the .ssh directory. Use the following command to create a .pem file: “ssh-keygen -f id_rsa -e -m pem”. Now there will be a file called id_rsa.pem in the .ssh directory. Open the id_rsa.pub file and copy it. Navigate to your agents and copy the public key into /root/.ssh/authorized_keys.
+	***NOTE***: You will need to MANUALLY run the rsync command included in site.pp for each instance the first time. Then, the agents will be added to the known_hosts file on the master and automation can take over.
+
+Create Cron Jobs in Site.pp
+	On your Puppet Master, within the main manifest site.pp, make sure to include the fakefreeze class on each agent node. On the master node, include a cron resource for each of the users on your system:
+
+	cron{ "sync USER_NAME":
+                command => "rsync -avL --progress -e "ssh -i /home/ubuntu/.ssh/id_rsa.pem" /etc/puppet/modules/fakefreeze/files/ root@10-0-7-246:/home/USER_NAME",
+		user => "ubuntu",
+		hour => "23",
+        }
+
+	This is what will clear the users’ home directories and restore the template files to their original states. It will also copy the permissions and owners from your template directory, so PLEASE ENSURE that the permissions are properly set in your template directory.
+
+Maintenance of System
+
+
 Adding or removing accounts:
 
 	Adding a new account
-		On the puppet master, go to /etc/puppet/modules/users and open up init.pp
-		Insert the user / key information using the template below. This will create a user account on the instance.
+		a. On the puppet master, go to /etc/puppet/modules/users and open up init.pp
+		b. Insert the user / key information using the template below. This will create a user account on the instance.
 
 	user { 'USERNAME':
 		ensure  => 'present',
@@ -18,19 +82,19 @@ Adding or removing accounts:
 		key     => 'Whatever_the_key_is',
 	}
 
-       c. Then, navigate to /etc/puppet/modules/fakefreeze. 
-       d. Open up init.pp in an editor and add the following code to the class:
+      		c. Then, navigate to /etc/puppet/modules/fakefreeze. 
+       		d. Open up init.pp in an editor and add the following code to the class:
 
   	cron { 'clean USERNAME':
     		command => 'find /tmp -user USERNAME -delete && find /var/tmp -user USERNAME -delete',
-    	user => 'root',
-    hour => '23',
-  }
+    		user => 'root',
+    		hour => '23',
+  	}
  
-This will delete any user files stored in temp directories
+	This will delete any user files stored in temp directories
 	      e. Finally, navigate to /etc/puppet/manifest, open up site.pp and add the following code to node ip-10-0-7-222:
 
-        cron{ "sync USER_NAME	":
+        cron{ "sync USER_NAME":
                 command => "rsync -avL --progress -e "ssh -i /home/ubuntu/.ssh/id_rsa.pem" /etc/puppet/modules/fakefreeze/files/ root@10-0-7-246:/home/USER_NAME",
 		user => "ubuntu",
 		hour => "23",
@@ -38,5 +102,6 @@ This will delete any user files stored in temp directories
 
 
 Deleting an account
-In addition to standard Unix user deletion, you must also follow the steps above and delete the code sections mentioned above.
+	In addition to standard Unix user deletion, you must also follow the steps above and delete the code sections mentioned above.
 
+Adding a New Agent
