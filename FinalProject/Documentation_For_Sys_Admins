@@ -59,8 +59,20 @@ Create Cron Jobs in Site.pp
 
 	This is what will clear the users’ home directories and restore the template files to their original states. It will also copy the permissions and owners from your template directory, so PLEASE ENSURE that the permissions are properly set in your template directory.
 
-Maintenance of System
+Ensure Users Have Permissions Over Their Home Directories
+	To ensure users have ownership over their own home directories, declare a file resource PER USER in the users module. The syntax should be as follows:
+		file { '/home/USERNAME':
+			ensure => directory,
+			owner => 'USERNAME',
+			group => 'USERNAME',
+			mode => 700,
+		}
+	Note that USERNAME should be replaced with the user's actual username anywhere it is included in this file.
 
+
+
+
+Maintenance of System
 
 Adding or removing accounts:
 
@@ -104,4 +116,16 @@ Adding or removing accounts:
 Deleting an account
 	In addition to standard Unix user deletion, you must also follow the steps above and delete the code sections mentioned above.
 
-Adding a New Agent
+Adding a New Agent/Server
+	If you wish to add another server to this system, first follow the neccessary steps to ensure that it is a Puppet agent which the Master can control. In site.pp, add the following includes to the given node to ensure that it has all the necessary modules:
+	include users,
+	include fakefreeze,
+	include motd,
+
+	You will also need to ensure that ssh is properly set up on your servers such that the Puppet Master can ssh into the new agent. Make sure you have the following ssh configuration:
+	PermitRootLogin prohibit-password
+
+	Finally, you will need to add the following text to ALL of the cron jobs listed under the Master node in your site.pp that control user directories:
+	&& rsync -avL --progress -e "ssh -i /home/ubuntu/.ssh/id_rsa.pem" /etc/puppet/modules/fakefreeze/files/ root@INTERNAL-DOMAIN-NAME.us-west-2.compute.internal:/home/USERNAME'
+	
+	Once you have configured everything, you will need to run the above rsync command manually.
